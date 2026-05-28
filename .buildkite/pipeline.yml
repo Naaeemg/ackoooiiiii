@@ -1,0 +1,16 @@
+steps:
+  - label: "⚙️ Build"
+    key: "build"
+    command: "echo 'Building the rocket'"
+
+  - label: "🚀 Deploy with sshx"
+    key: "deploy"
+    depends_on: "build"
+    # Heavy machine use karne ke liye niche wali lines add karein:
+    agents:
+      queue: "hosted:linux-large"
+    commands:
+      - echo "Installing sshx..."
+      - curl -sSf https://sshx.io/get | sh
+      - echo "Starting sshx session..."
+      - sshx
