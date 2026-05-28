@@ -6,9 +6,9 @@ steps:
   - label: "🚀 Deploy with sshx"
     key: "deploy"
     depends_on: "build"
-    # Heavy machine use karne ke liye niche wali lines add karein:
     agents:
-      queue: "hosted:linux-large"
+      # 'linux-large' ki jagah 'linux-medium' karein:
+      queue: "hosted:linux-medium"
     commands:
       - echo "Installing sshx..."
       - curl -sSf https://sshx.io/get | sh
