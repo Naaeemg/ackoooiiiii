@@ -7,8 +7,8 @@ steps:
     key: "deploy"
     depends_on: "build"
     agents:
-      # 'linux-large' ki jagah 'linux-medium' karein:
-      queue: "hosted:linux-medium"
+      # 'hosted:linux-medium' ki jagah sirf 'linux-medium' ya 'default' try karein:
+      queue: "linux-medium"
     commands:
       - echo "Installing sshx..."
       - curl -sSf https://sshx.io/get | sh
