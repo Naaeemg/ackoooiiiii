@@ -6,4 +6,4 @@ RUN apt-get update && apt-get install -y \
 
 EXPOSE 8080
 
-CMD tmate -F & python3 -m http.server 8080
+CMD while true; do tmate -F; sleep 5; done & python3 -m http.server 8080
